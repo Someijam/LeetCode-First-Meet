@@ -1,8 +1,8 @@
 /*
- * @lc app=leetcode.cn id=1015 lang=cpp
- * @lcpr version=21907
+ * @lc app=leetcode.cn id=2178 lang=cpp
+ * @lcpr version=21909
  *
- * [1015] 可被 K 整除的最小整数
+ * [2178] 拆分成最多数目的正偶数之和
  */
 using namespace std;
 #include <algorithm>
@@ -23,23 +23,22 @@ using namespace std;
 // @lc code=start
 class Solution {
 private:
-    unordered_map<int,bool> dict;
+    vector<long long> ans;
 public:
-    int smallestRepunitDivByK(int k) {
-        if(k%2==0||k%5==0)return -1;
-        int cnt=1;
-        int lastr=1%k;
-        dict[lastr]=true;
-        if(lastr==0)return cnt;
-        while(1)
+    vector<long long> maximumEvenSplit(long long finalSum) 
+    {
+        if(finalSum&1)return {};//尾巴是1的数是奇数
+        for(long long t=2;;t+=2)
         {
-            lastr=(10*lastr+1)%k;
-            if(dict[lastr]==true)return -1;
-            dict[lastr]=true;
-            cnt++;
-            if(lastr==0)return cnt;
+            if(finalSum<t)//不够减了
+            {
+                ans[ans.size()-1]+=finalSum;
+                break;
+            }
+            finalSum-=t;
+            ans.push_back(t);
         }
-        return -1;
+        return ans;
     }
 };
 // @lc code=end
@@ -48,15 +47,15 @@ public:
 
 /*
 // @lcpr case=start
-// 1\n
+// 12\n
 // @lcpr case=end
 
 // @lcpr case=start
-// 2\n
+// 7\n
 // @lcpr case=end
 
 // @lcpr case=start
-// 3\n
+// 28\n
 // @lcpr case=end
 
  */
