@@ -1,9 +1,12 @@
 /*
- * @lc app=leetcode.cn id=2532 lang=cpp
- * @lcpr version=21909
+ * @lc app=leetcode.cn id=1415 lang=cpp
+ * @lcpr version=30104
  *
- * [2532] 过桥的时间
+ * [1415] 长度为 n 的开心字符串中字典序第 k 小的字符串
  */
+
+
+// @lcpr-template-start
 using namespace std;
 #include <algorithm>
 #include <array>
@@ -20,11 +23,13 @@ using namespace std;
 #include <unordered_set>
 #include <utility>
 #include <vector>
+// @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
-    int findCrossingTime(int n, int k, vector<vector<int>>& time) {
-        
+    string getHappyString(int n, int k) 
+    {
+
     }
 };
 // @lc code=end
@@ -33,11 +38,23 @@ public:
 
 /*
 // @lcpr case=start
-// 1\n3\n[[1,1,2,1],[1,1,3,1],[1,1,4,1]]\n
+// 1\n3\n
 // @lcpr case=end
 
 // @lcpr case=start
-// 3\n2\n[[1,9,1,8],[10,10,10,10]]\n
+// 1\n4\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 3\n9\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 2\n7\n
+// @lcpr case=end
+
+// @lcpr case=start
+// 10\n100\n
 // @lcpr case=end
 
  */

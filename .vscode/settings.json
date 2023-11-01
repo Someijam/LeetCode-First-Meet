@@ -8,6 +8,7 @@
         "iosfwd": "cpp",
         "__hash_table": "cpp",
         "unordered_set": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "string": "cpp"
     }
 }

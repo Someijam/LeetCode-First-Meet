@@ -6,11 +6,14 @@
 // @lcpr-before-debug-end
 
 /*
- * @lc app=leetcode.cn id=167 lang=cpp
- * @lcpr version=21909
+ * @lc app=leetcode.cn id=274 lang=cpp
+ * @lcpr version=30104
  *
- * [167] 两数之和 II - 输入有序数组
+ * [274] H 指数
  */
+
+
+// @lcpr-template-start
 using namespace std;
 #include <algorithm>
 #include <array>
@@ -27,22 +30,24 @@ using namespace std;
 #include <unordered_set>
 #include <utility>
 #include <vector>
+// @lcpr-template-end
 // @lc code=start
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        int l=0;
-        int r=numbers.size()-1;
-        while (l<r)
+    int hIndex(vector<int>& citations) 
+    {
+        sort(citations.begin(),citations.end(),[](int x,int y)->bool{return x>=y;});
+        // 6,5,4 ,1,0
+        // 前面的i个人都>=i -> 第i个人>=i -> a[i-1]>=i,max i
+        int ans=0;
+        for(int i=0;i<citations.size();i++)
         {
-            if(numbers[l]+numbers[r]==target)
+            if(citations[i]<i+1)
             {
-                return {l+1,r+1};
+                return i;
             }
-            else if(numbers[l]+numbers[r]>target) r--;
-            else if(numbers[l]+numbers[r]<target) l++;
         }
-        return {0,0};
+        return citations.size();
     }
 };
 // @lc code=end
@@ -51,15 +56,11 @@ public:
 
 /*
 // @lcpr case=start
-// [2,7,11,15]\n9\n
+// [3,0,6,1,5]\n
 // @lcpr case=end
 
 // @lcpr case=start
-// [2,3,4]\n6\n
-// @lcpr case=end
-
-// @lcpr case=start
-// [-1,0]\n-1\n
+// [1,3,1]\n
 // @lcpr case=end
 
  */
