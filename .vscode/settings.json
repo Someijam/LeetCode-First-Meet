@@ -9,6 +9,7 @@
         "__hash_table": "cpp",
         "unordered_set": "cpp",
         "stack": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "deque": "cpp"
     }
 }
